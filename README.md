@@ -1,7 +1,11 @@
 # PAFX
 
 ## Inroduction
-PAFX stands for Python Audio Effects.
+PAFX stands for Python Audio Effects. This library includes implemenation of some audio effects commonly used, and all written in Python.
+
+## Usage
+
+Please check the file *test_pafx.py* for examples. On audio clip was taken from CD of the book *Mixing Audio* for testing.
 
 ## Features
 - [ ] Stereo Signal
