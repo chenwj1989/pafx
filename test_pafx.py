@@ -12,6 +12,7 @@ from pafx.chorus import Chorus
 from pafx.flanger import Flanger
 from pafx.vibrato import Vibrato
 from pafx.tremolo import Tremolo
+from pafx.fade import Fade, FadeIn, FadeOut
 
 def test_filters(input_file):
     x, fs  = sf.read(input_file)
@@ -166,10 +167,35 @@ def test_tremolo(input_file):
     y = y / max(np.abs(y))
     sf.write(output_file, y, fs)
 
+def test_fade(input_file):
+    x, fs  = sf.read(input_file)
+    y = np.zeros(len(x))
+    y1 = np.zeros(len(x))
+    y2 = np.zeros(len(x))
+
+    in_length = 5
+    out_start = 5
+    out_length = 5
+    fade = Fade(fs, in_length, out_start, out_length)
+    fade_in = FadeIn(fs, in_length)
+    fade_out = FadeOut(fs, out_length)
+    # Start Processing
+    for i in range(len(x)):
+        y[i] = fade.process(x[i])
+        y1[i] = fade_in.process(x[i])
+        y2[i] = fade_out.process(x[i])
+    y = y / max(np.abs(y))
+    y1 = y1 / max(np.abs(y1))
+    y2 = y2 / max(np.abs(y2))
+    sf.write("data/fade.wav", y, fs)
+    sf.write("data/fade_in.wav", y1, fs)
+    sf.write("data/fade_out.wav", y2, fs)
+
 def main():
 
     # Prepare Data 
     input_file = "data/input.wav"
+    '''
     test_filters(input_file)
     test_eq(input_file)
     test_reverb(input_file)
@@ -178,6 +204,8 @@ def main():
     test_flanger(input_file)
     test_vibrato(input_file)
     test_tremolo(input_file)
+    '''
+    test_fade(input_file)
 
 if __name__=="__main__":
     main()

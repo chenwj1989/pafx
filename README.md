@@ -10,22 +10,25 @@ Please check the file *test_pafx.py* for examples. On audio clip was taken from 
 ## Features
 - [ ] Stereo Signal
 - [X] Biquad IIR Filters
+- [X] Comb Filter
 - [X] Equalizer
 - [X] Reverb
 - [X] Delay Line
 - [X] Chorus
 - [X] Echo
+- [X] Fade-in/Fade-out
 - [ ] Flanger
 - [X] Vibrato
 - [X] Tremolo
 - [ ] Tempo Scaling
 - [ ] Pitch Shift
-- [ ] Dynamic Range Compression
 - [ ] Phaser
 - [ ] Wah-Wah
+- [ ] Compressor
+- [ ] Limiter
 - [ ] Noise Gates and Expander
+- [ ] Multi-band compression/expansion/limiting
 - [ ] Distortion
-- [ ] Phaser
 
 ## Reference
 - Zölzer U, Amatriain X, Arfib D, et al. DAFX-Digital audio effects. John Wiley & Sons, 2002.
